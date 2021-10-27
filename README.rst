@@ -12,40 +12,121 @@ To see the information of the currently running experiment
 ::
 
     $ slack show
-	2021-10-01 11:37:27,486 - GUP proposal_id: 72873
-	2021-10-01 11:37:27,720 - Added yingh16@uci.edu to the e-mail list.
-	2021-10-01 11:37:27,721 - Added satjarit@email.sc.edu to the e-mail list.
-	2021-10-01 11:37:27,721 - Added dskulkar@uci.edu to the e-mail list.
-	2021-10-01 11:37:27,721 - Added iryna.zenyuk@tufts.edu to the e-mail list.
-	2021-10-01 11:37:27,721 - General
-	2021-10-01 11:37:27,721 -   config           /home/beams/USER2BMB/slack.conf
-	2021-10-01 11:37:27,721 -   verbose          True
-	2021-10-01 11:37:27,721 - Settings
-	2021-10-01 11:37:27,721 -   testing          0.0
-	2021-10-01 11:37:27,721 - Contacts
-	2021-10-01 11:37:27,721 -   primary_beamline_contact_email akastengren@anl.gov
-	2021-10-01 11:37:27,721 -   secondary_beamline_contact_email decarlo@anl.gov
+    2021-10-26 22:45:25,034 - GUP proposal_id: 73002
+    2021-10-26 22:45:25,230 - Added c.j.takacs@gmail.com to the e-mail list.
+    2021-10-26 22:45:25,230 - Added caochuntian@gmail.com to the e-mail list.
+    2021-10-26 22:45:25,230 - Added galluzzo.m@berkeley.edu to the e-mail list.
+    2021-10-26 22:45:25,230 - Added lgrundy@berkeley.edu to the e-mail list.
+    2021-10-26 22:45:25,230 - Added michael.toney@colorado.edu to the e-mail list.
+    2021-10-26 22:45:25,230 - Added nbalsara@cchem.berkeley.edu to the e-mail list.
+    2021-10-26 22:45:25,230 - Added hans.georg.steinrueck@uni-paderborn.de to the e-mail list.
+    2021-10-26 22:45:25,230 - General
+    2021-10-26 22:45:25,230 -   config           /home/beams/8IDIUSER/slack.conf
+    2021-10-26 22:45:25,230 -   verbose          True
+    2021-10-26 22:45:25,231 - Settings
+    2021-10-26 22:45:25,231 -   set              0.0
+    2021-10-26 22:45:25,231 - Beamline contacts
+    2021-10-26 22:45:25,231 -   primary_beamline_contact_email decarlo@anl.gov
+    2021-10-26 22:45:25,231 -   secondary_beamline_contact_email akastengren@anl.gov
 
-To create a slack channel called gup_72873 and invite all users listed in the proposal
+To create a slack channel called 2021_10_26_steinrueck_gup_73002 and invite all users listed in the proposal
 
 ::
 
     $ slack gup
-	2021-10-01 11:34:07,402 - GUP proposal_id: 72873
-	2021-10-01 11:34:07,614 - Added yingh16@uci.edu to the e-mail list.
-	2021-10-01 11:34:07,614 - Added satjarit@email.sc.edu to the e-mail list.
-	2021-10-01 11:34:07,614 - Added dskulkar@uci.edu to the e-mail list.
-	2021-10-01 11:34:07,614 - Added iryna.zenyuk@tufts.edu to the e-mail list.
-	gup_72873
-	2021-10-01 11:34:07,922 - Slack result {'ok': True, 'channel': {'id': 'C02H2TKMEV6', 'name': 	'gup_72873', 'is_channel': True, 'is_group': False, 'is_im': False, 'created': 1633106047, 	'is_archived': False, 'is_general': False, 'unlinked': 0, 'name_normalized': 'gup_72873', 'is_shared': 	False, 'parent_conversation': None, 'creator': 'U02FHG33693', 'is_ext_shared': False, 'is_org_shared': 	False, 'shared_team_ids': ['T024R3UJBAN'], 'pending_shared': [], 'pending_connected_team_ids': [], 	'is_pending_ext_shared': False, 'is_member': True, 'is_private': False, 'is_mpim': False, 'last_read': 	'0000000000.000000', 'topic': {'value': '', 'creator': '', 'last_set': 0}, 'purpose': {'value': '', 	'creator': '', 'last_set': 0}, 'previous_names': [], 'priority': 0}}
-	2021-10-01 11:34:07,922 - General
-	2021-10-01 11:34:07,922 -   config           /home/beams/USER2BMB/slack.conf
-	2021-10-01 11:34:07,922 -   verbose          True
-	2021-10-01 11:34:07,923 - Settings
-	2021-10-01 11:34:07,923 -   testing          0.0
-	2021-10-01 11:34:07,923 - Contacts
-	2021-10-01 11:34:07,923 -   primary_beamline_contact_email akastengren@anl.gov
-	2021-10-01 11:34:07,923 -   secondary_beamline_contact_email decarlo@anl.gov
+    2021-10-26 22:44:28,928 - Proposal starting date: 2021_10_26
+    2021-10-26 22:44:29,154 - Proposal PI: steinrueck
+    2021-10-26 22:44:29,550 - GUP proposal_id: 73002
+    2021-10-26 22:44:29,745 - Added c.j.takacs@gmail.com to the e-mail list.
+    2021-10-26 22:44:29,746 - Added caochuntian@gmail.com to the e-mail list.
+    2021-10-26 22:44:29,746 - Added galluzzo.m@berkeley.edu to the e-mail list.
+    2021-10-26 22:44:29,746 - Added lgrundy@berkeley.edu to the e-mail list.
+    2021-10-26 22:44:29,746 - Added michael.toney@colorado.edu to the e-mail list.
+    2021-10-26 22:44:29,746 - Added nbalsara@cchem.berkeley.edu to the e-mail list.
+    2021-10-26 22:44:29,746 - Added hans.georg.steinrueck@uni-paderborn.de to the e-mail list.
+    2021-10-26 22:44:30,000 - Created slack channel: 2021_10_26_steinrueck_gup_73002
+    2021-10-26 22:44:30,001 - Please invite to the slack channel 2021_10_26_steinrueck_gup_73002 these users ['c.j.takacs@gmail.com', 'caochuntian@gmail.com', 'galluzzo.m@berkeley.edu', 'lgrundy@berkeley.edu', 'michael.toney@colorado.edu', 'nbalsara@cchem.berkeley.edu', 'hans.georg.steinrueck@uni-paderborn.de', 'decarlo@anl.gov', 'akastengren@anl.gov']
+    2021-10-26 22:44:30,001 - General
+    2021-10-26 22:44:30,001 -   config           /home/beams/8IDIUSER/slack.conf
+    2021-10-26 22:44:30,001 -   verbose          True
+    2021-10-26 22:44:30,001 - Settings
+    2021-10-26 22:44:30,001 -   set              0.0
+    2021-10-26 22:44:30,001 - Beamline contacts
+    2021-10-26 22:44:30,001 -   primary_beamline_contact_email decarlo@anl.gov
+    2021-10-26 22:44:30,001 -   secondary_beamline_contact_email akastengren@anl.gov
+
+To share the newly created slack channel with the user listed in the proposal:
+
+1. Select the newlly created channel: 
+
+.. image:: docs/source/img/add_people_0.png
+    :width: 40%
+    :align: center
+
+2. Share the channel with users listed in the proposal by copy/paste their email address in the invite box:
+
+.. image:: docs/source/img/add_people_1.png
+    :width: 40%
+    :align: center
+
+To create a slack channel for a future/past user group and invite all users listed in the proposal, e.g 5 days in the future:
+
+::
+
+    $ slack gup --set 5
+    2021-10-26 22:47:22,618 - Proposal starting date: 2021_10_29
+    2021-10-26 22:47:22,817 - Proposal PI: antonio
+    2021-10-26 22:47:23,184 - GUP proposal_id: 76020
+    2021-10-26 22:47:23,374 - Added hans.georg.steinrueck@uni-paderborn.de to the e-mail list.
+    2021-10-26 22:47:23,374 - Added shrayesh@uchicago.edu to the e-mail list.
+    2021-10-26 22:47:23,374 - Added michael.toney@colorado.edu to the e-mail list.
+    2021-10-26 22:47:23,374 - Added pbennington@uchicago.edu to the e-mail list.
+    2021-10-26 22:47:23,374 - Added emma.antonio@colorado.edu to the e-mail list.
+    2021-10-26 22:47:23,374 - Added dufresne@aps.anl.gov to the e-mail list.
+    2021-10-26 22:47:23,374 - Added sureshn@aps.anl.gov to the e-mail list.
+    2021-10-26 22:47:23,656 - Created slack channel: 2021_10_29_antonio_gup_76020
+    2021-10-26 22:47:23,656 - Please invite to the slack channel 2021_10_29_antonio_gup_76020 these users ['hans.georg.steinrueck@uni-paderborn.de', 'shrayesh@uchicago.edu', 'michael.toney@colorado.edu', 'pbennington@uchicago.edu', 'emma.antonio@colorado.edu', 'dufresne@aps.anl.gov', 'sureshn@aps.anl.gov', 'decarlo@anl.gov', 'akastengren@anl.gov']
+    2021-10-26 22:47:23,656 - General
+    2021-10-26 22:47:23,656 -   config           /home/beams/8IDIUSER/slack.conf
+    2021-10-26 22:47:23,657 -   verbose          True
+    2021-10-26 22:47:23,657 - Settings
+    2021-10-26 22:47:23,657 -   set              5.0
+    2021-10-26 22:47:23,657 - Beamline contacts
+    2021-10-26 22:47:23,657 -   primary_beamline_contact_email decarlo@anl.gov
+    2021-10-26 22:47:23,657 -   secondary_beamline_contact_email akastengren@anl.gov
+
+
+for help::
+
+    slack -h
+    usage: slack [-h] [--config FILE]  ...
+
+    optional arguments:
+      -h, --help     show this help message and exit
+      --config FILE  File name of configuration
+
+    Commands:
+      
+        init         Create configuration file
+        show         Show user and experiment info from the APS schedule
+        gup          Create a slack channel using called YYYY_MM_DD_PI-last-name_gup_##### and share it with all users listed in the proposal
+
+
+::
+
+    slack gup -h
+    usage: slack gup [-h] [--set TESTING] [--primary-beamline-contact-email FILE] [--secondary-beamline-contact-email FILE]
+                     [--config FILE] [--verbose]
+
+    optional arguments:
+      -h, --help            show this help message and exit
+      --set SET             Number of +/- number days for the current date. Used for set (default: 0)
+      --primary-beamline-contact-email FILE
+                            Beamline scientist email (default: decarlo@anl.gov)
+      --secondary-beamline-contact-email FILE
+                            Beamline scientist email (default: akastengren@anl.gov)
+      --config FILE         File name of configuration (default: /home/beams/USER2BMB/slack.conf)
+      --verbose             Verbose output (default: True)
 
 Installation
 ============
@@ -89,7 +170,6 @@ Features and functionalities
 
 Add features and functionalities (enable all those that are green)
 
-
 .. image:: docs/source/img/features_functionalities.png
     :width: 40%
     :align: center
@@ -132,16 +212,39 @@ Finally you need invite the Slack app to a specific slack channel:
 Installing from source
 ======================
 
-In a prepared virtualenv or as root for system-wide installation clone the 
+In a prepared `anaconda <https://www.anaconda.com/products/individual>`_ python virtualenv or as root for system-wide installation clone  
 `slackaps <https://github.com/xray-imaging/slack-aps.git>`_ from `GitHub <https://github.com>`_ repository
 
 ::
 
     $ git clone https://github.com/xray-imaging/slack-aps.git slack-aps
+    $ cd slack-aps
+    $ python setup.py install
 
 Dependencies
 ============
 
-Install the following package::
+python
+------
 
-    $ pip ...
+Install the package listed in the `requirements <https://github.com/xray-imaging/slack-gup/blob/main/requirements.txt>`_ file. 
+
+data management
+---------------
+
+To access the APS scheduing system install::
+
+    $ conda install -c aps-anl-tag aps-dm-api='5.0.3=py39_1'
+
+add in your .bashrc::
+
+    DM_APS_DB_WEB_SERVICE_URL=https://xraydtn02.xray.aps.anl.gov:11236
+    export DM_APS_DB_WEB_SERVICE_URL
+    DM_BEAMLINE_NAME=20-BM-B
+    export DM_BEAMLINE_NAME
+
+To test the access to the APS scheduling system::
+
+    python -c "from dm.aps_db_web_service.api.esafApsDbApi import EsafApsDbApi; api = EsafApsDbApi();print(api.listEsafs(sector='20',     year=2021))"
+
+
