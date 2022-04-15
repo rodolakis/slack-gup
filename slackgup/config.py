@@ -3,7 +3,6 @@ import sys
 import pathlib
 import argparse
 import configparser
-import numpy as np
 from collections import OrderedDict
 from slackgup import log
 
@@ -27,16 +26,21 @@ SECTIONS['settings'] = {
         'type': float,
         'default': 0,
         'help': "Number of +/- number days for the current date. Used for setting a channel for past/future user groups"},
+    'beamline': {
+        'default': 'None',
+        'type': str,
+        'help': "When set adds the beamline name as a prefix to the slack channel name",
+        'choices': ['None','2-bm', '7-bm', '8-id', '20-bm', '29-id', '32-id']},
     }
 
 SECTIONS['contacts'] = {
     'primary-beamline-contact-email': {
-        'default': 'decarlo@anl.gov',
+        'default': 'pshevchenko@anl.gov',
         'type': str,
         'help': "Beamline scientist email",
         'metavar': 'FILE'},
     'secondary-beamline-contact-email': {
-        'default': 'akastengren@anl.gov',
+        'default': 'decarlo@anl.gov',
         'type': str,
         'help': "Beamline scientist email",
         'metavar': 'FILE'},

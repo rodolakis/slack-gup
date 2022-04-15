@@ -8,6 +8,72 @@ Creates slack channel using General User Proposal (GUP) number (GUP-#) and invit
 Usage
 =====
 
+
+Create
+------
+
+To create a slack channel called 2_bm_2022_03_08_chardon_gup_74496 and invite all users listed in the proposal
+
+::
+
+    $ slack gup
+    2022-01-28 11:37:37,954 - Selected date is 2022-03-08 17:37:37.954098+00:00.
+    2022-01-28 11:37:37,954 - Found valid proposal id
+    2022-01-28 11:37:38,158 - GUP proposal_id: 74496
+    2022-01-28 11:37:38,355 - Found valid proposal start time
+    2022-01-28 11:37:38,356 - Proposal starting date: 2022_03_08
+    2022-01-28 11:37:38,548 - Found valid experimenters
+    2022-01-28 11:37:38,548 - Proposal PI: chardon
+    2022-01-28 11:37:38,735 - Found valid experimenters
+    2022-01-28 11:37:38,735 - Added ywang11@calstatela.edu to the e-mail list.
+    2022-01-28 11:37:38,735 - Added mgarcia@anl.gov to the e-mail list.
+    2022-01-28 11:37:38,735 - Added ravescovi@gmail.com to the e-mail list.
+    2022-01-28 11:37:38,735 - Added vsampathkumar@anl.gov to the e-mail list.
+    2022-01-28 11:37:38,735 - Added m-chardon@northwestern.edu to the e-mail list.
+    2022-01-28 11:37:38,736 - Added pshevchenko@aps.anl.gov to the e-mail list.
+    2022-01-28 11:37:38,736 - Added vdeandrade@aps.anl.gov to the e-mail list.
+    2022-01-28 11:37:38,736 - Found valid emails
+    2022-01-28 11:37:39,161 - Created slack channel: 2_bm_2022_03_08_chardon_gup_74496
+    2022-01-28 11:37:39,161 - Please invite to the slack channel 2_bm_2022_03_08_chardon_gup_74496 these users [ywang11@calstatela.edu, mgarcia@anl.gov, ravescovi@gmail.com, vsampathkumar@anl.gov, m-chardon@northwestern.edu, pshevchenko@aps.anl.gov, vdeandrade@aps.anl.gov, pshevchenko@anl.gov, decarlo@anl.gov]
+    2022-01-28 11:37:39,162 - General
+    2022-01-28 11:37:39,162 -   config           /home/beams/USER2BMB/slack.conf
+    2022-01-28 11:37:39,162 -   verbose          True
+    2022-01-28 11:37:39,162 - Settings
+    2022-01-28 11:37:39,162 -   beamline         2-bm
+    2022-01-28 11:37:39,162 -   set              0
+    2022-01-28 11:37:39,162 - Beamline contacts
+    2022-01-28 11:37:39,162 -   primary_beamline_contact_email pshevchenko@anl.gov
+    2022-01-28 11:37:39,162 -   secondary_beamline_contact_email decarlo@anl.gov
+
+
+Share
+-----
+
+To share the newly created slack channel with the user listed in the proposal:
+
+1. Click on your workspace name and select **Invite people to ... **: 
+
+.. image:: docs/source/img/channel_add_users_01.png
+    :width: 40%
+    :align: center
+
+copy/paste the user's email address list provided by the above **slack gup** command and select **Invite as Guest**:
+
+.. image:: docs/source/img/channel_add_users_02.png
+    :width: 40%
+    :align: center
+
+enter in the **Add to Channels** the newly created channel provided by the above **slack gup** command, i.e. 2_bm_2022_03_08_chardon_gup_74496 and select **Set a time limit**:
+
+.. image:: docs/source/img/channel_add_users_03.png
+    :width: 40%
+    :align: center
+
+Press **Send** and all users will be able to access as guest their gup proposal channel.
+
+Show
+----
+
 To see the information of the currently running experiment
 ::
 
@@ -29,45 +95,6 @@ To see the information of the currently running experiment
     2021-10-26 22:45:25,231 -   primary_beamline_contact_email decarlo@anl.gov
     2021-10-26 22:45:25,231 -   secondary_beamline_contact_email akastengren@anl.gov
 
-To create a slack channel called 2021_10_26_steinrueck_gup_73002 and invite all users listed in the proposal
-
-::
-
-    $ slack gup
-    2021-10-26 22:44:28,928 - Proposal starting date: 2021_10_26
-    2021-10-26 22:44:29,154 - Proposal PI: steinrueck
-    2021-10-26 22:44:29,550 - GUP proposal_id: 73002
-    2021-10-26 22:44:29,745 - Added c.j.takacs@gmail.com to the e-mail list.
-    2021-10-26 22:44:29,746 - Added caochuntian@gmail.com to the e-mail list.
-    2021-10-26 22:44:29,746 - Added galluzzo.m@berkeley.edu to the e-mail list.
-    2021-10-26 22:44:29,746 - Added lgrundy@berkeley.edu to the e-mail list.
-    2021-10-26 22:44:29,746 - Added michael.toney@colorado.edu to the e-mail list.
-    2021-10-26 22:44:29,746 - Added nbalsara@cchem.berkeley.edu to the e-mail list.
-    2021-10-26 22:44:29,746 - Added hans.georg.steinrueck@uni-paderborn.de to the e-mail list.
-    2021-10-26 22:44:30,000 - Created slack channel: 2021_10_26_steinrueck_gup_73002
-    2021-10-26 22:44:30,001 - Please invite to the slack channel 2021_10_26_steinrueck_gup_73002 these users ['c.j.takacs@gmail.com', 'caochuntian@gmail.com', 'galluzzo.m@berkeley.edu', 'lgrundy@berkeley.edu', 'michael.toney@colorado.edu', 'nbalsara@cchem.berkeley.edu', 'hans.georg.steinrueck@uni-paderborn.de', 'decarlo@anl.gov', 'akastengren@anl.gov']
-    2021-10-26 22:44:30,001 - General
-    2021-10-26 22:44:30,001 -   config           /home/beams/8IDIUSER/slack.conf
-    2021-10-26 22:44:30,001 -   verbose          True
-    2021-10-26 22:44:30,001 - Settings
-    2021-10-26 22:44:30,001 -   set              0.0
-    2021-10-26 22:44:30,001 - Beamline contacts
-    2021-10-26 22:44:30,001 -   primary_beamline_contact_email decarlo@anl.gov
-    2021-10-26 22:44:30,001 -   secondary_beamline_contact_email akastengren@anl.gov
-
-To share the newly created slack channel with the user listed in the proposal:
-
-1. Select the newlly created channel: 
-
-.. image:: docs/source/img/add_people_0.png
-    :width: 40%
-    :align: center
-
-2. Share the channel with users listed in the proposal by copy/paste their email address in the invite box:
-
-.. image:: docs/source/img/add_people_1.png
-    :width: 40%
-    :align: center
 
 To create a slack channel for a future/past user group and invite all users listed in the proposal, e.g 5 days in the future:
 
@@ -96,7 +123,10 @@ To create a slack channel for a future/past user group and invite all users list
     2021-10-26 22:47:23,657 -   secondary_beamline_contact_email akastengren@anl.gov
 
 
-for help::
+Help
+----
+
+::
 
     slack -h
     usage: slack [-h] [--config FILE]  ...
@@ -115,17 +145,21 @@ for help::
 ::
 
     slack gup -h
-    usage: slack gup [-h] [--set TESTING] [--primary-beamline-contact-email FILE] [--secondary-beamline-contact-email FILE]
-                     [--config FILE] [--verbose]
+    usage: slack gup [-h] [--beamline {None,2_bm,7_bm,8_id_i,20_bm,29_id,32_id_b,32_id_c}] [--set SET]
+                   [--primary-beamline-contact-email FILE] [--secondary-beamline-contact-email FILE] [--config FILE]
+                   [--verbose]
 
     optional arguments:
       -h, --help            show this help message and exit
-      --set SET             Number of +/- number days for the current date. Used for set (default: 0)
+      --beamline {None,2_bm,7_bm,8_id_i,20_bm,29_id,32_id_b,32_id_c}
+                            When set adds the beamline name as a prefix to the slack channel name (default: None)
+      --set SET             Number of +/- number days for the current date. Used for setting a channel for past/future user
+                            groups (default: 0)
       --primary-beamline-contact-email FILE
-                            Beamline scientist email (default: decarlo@anl.gov)
+                            Beamline scientist email (default: pshevchenko@anl.gov)
       --secondary-beamline-contact-email FILE
-                            Beamline scientist email (default: akastengren@anl.gov)
-      --config FILE         File name of configuration (default: /home/beams/USER2BMB/slack.conf)
+                            Beamline scientist email (default: decarlo@anl.gov)
+      --config FILE         File name of configuration (default: /home/beams/USERTXM/slack.conf)
       --verbose             Verbose output (default: True)
 
 Installation
@@ -242,6 +276,8 @@ add in your .bashrc::
     export DM_APS_DB_WEB_SERVICE_URL
     DM_BEAMLINE_NAME=20-BM-B
     export DM_BEAMLINE_NAME
+
+Replace DM_BEAMLINE_NAME with your beamline name as listed in the `APS beamline directory <https://www.aps.anl.gov/Beamlines/Directory>`_. 
 
 To test the access to the APS scheduling system::
 
