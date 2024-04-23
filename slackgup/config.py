@@ -25,12 +25,15 @@ SECTIONS['settings'] = {
     'set': {     
         'type': float,
         'default': 0,
-        'help': "Number of +/- number days for the current date. Used for setting a channel for past/future user groups"},
-    'beamline': {
-        'default': 'None',
+        'help': "Number of +/- number days for the current date. Used for setting user info for past/future user groups"},
+    'beamline' : {
+        'default' : '7-BM-B',
         'type': str,
-        'help': "When set adds the beamline name as a prefix to the slack channel name",
-        'choices': ['None','2-bm', '7-bm', '8-id', '20-bm', '29-id', '32-id']},
+        'help': "beamline name as defined at https://www.aps.anl.gov/Beamlines/Directory, e.g. 2-BM-A,B or 7-BM-B or 32-ID-B,C"},
+    'url':{
+        'default': 'https://mis7.aps.anl.gov:7004',
+        'type': str,
+        'help': "URL address of the scheduling system REST API' "},
     }
 
 SECTIONS['contacts'] = {

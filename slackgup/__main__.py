@@ -53,6 +53,11 @@ import sys
 import datetime
 import argparse
 import pathlib
+import datetime as dt
+
+# install dmagic from https://github.com/xray-imaging/DMagic
+from dmagic import authorize
+from dmagic import scheduling
 
 from dotenv import load_dotenv
 from slack_sdk import WebClient
@@ -60,7 +65,6 @@ from slack_sdk.errors import SlackApiError
 
 from slackgup import log
 from slackgup import config
-from slackgup import scheduling
 
 def init(args):
     if not os.path.exists(str(args.config)):
@@ -74,31 +78,53 @@ def status(args):
 def create_channel_name(args):
 
     channel_name = None
-    emails = []
-    proposal_id = scheduling.get_current_proposal_id(args)
-    if proposal_id != None:
+    proposal_user_emails = []
+
+    now = datetime.datetime.today() + dt.timedelta(args.set)
+    log.info("Today's date: %s" % now)
+
+    auth      = authorize.basic()
+    run       = scheduling.current_run(auth, args)
+    proposals = scheduling.beamtime_requests(run, auth, args)
+    
+    if not proposals:
+        log.error('No valid current experiment')
+        return None
+    try:
+        log.error(proposals['message'])
+        return None
+    except:
+        pass
+
+    proposal = scheduling.get_current_proposal(proposals, args)
+    if proposal != None:
+        proposal_pi          = scheduling.get_current_pi(proposal)
+        pi_last_name         = proposal_pi['lastName']   
+        proposal_id          = scheduling.get_current_proposal_id(proposal)
+        proposal_user_emails = scheduling.get_current_emails(proposal, False)
+        proposal_start_date  = scheduling.get_proposal_starting_date(proposal)
+
         log.info('GUP proposal_id: %s' % proposal_id)
-        proposal_starting_date = scheduling.get_proposal_starting_date(args)
-        log.info('Proposal starting date: %s' % proposal_starting_date)
-        proposal_pi = scheduling.get_current_pi(args)['lastName'].lower()
-        log.info('Proposal PI: %s' % proposal_pi)
-        emails = scheduling.get_current_emails(args, exclude_pi=False)
+        log.info('Proposal starting date: %s' % proposal_start_date)
+        log.info('Proposal PI: %s' % pi_last_name)
         if args.primary_beamline_contact_email != "Empty":
-            emails.append(args.primary_beamline_contact_email)
+            proposal_user_emails.append(args.primary_beamline_contact_email)
         if args.secondary_beamline_contact_email != "Empty":
-            emails.append(args.secondary_beamline_contact_email)
+            proposal_user_emails.append(args.secondary_beamline_contact_email)
         if (args.beamline == 'None'):
-            channel_name = proposal_starting_date + '_' + proposal_pi + '_gup_' + proposal_id
+            channel_name = proposal_start_date + '_' + pi_last_name + '_gup_' + proposal_id
         else: 
-            channel_name = args.beamline.replace('-', '_') + '_' + proposal_starting_date + '_' + proposal_pi + '_gup_' + proposal_id
+            channel_name = args.beamline.replace('-', '_').replace(',', '_') + '_' + proposal_start_date + '_' + pi_last_name + '_gup_' + str(proposal_id)
+            log.info('Slack channel name: %s' % channel_name)
+
     else:
         log.error("There is not a valid proposal on the selected date")
 
-    return channel_name, emails
+    return channel_name, proposal_user_emails
 
 def slack_gup(args):
 
-    channel_name, emails = create_channel_name(args)
+    channel_name, proposal_user_emails = create_channel_name(args)
 
     # Set bot tokens as environment values
     env_path = os.path.join(str(pathlib.Path.home()), '.slackenv')
@@ -113,12 +139,12 @@ def slack_gup(args):
             name=channel_name
         )
         log.warning('Created slack channel: %s' % result['channel']['name'])
-        log.warning("Please invite to the slack channel %s these users [%s]" % (channel_name, ', '.join(map(str, emails)).strip("'")))
+        log.warning("Please invite to the slack channel %s these users [%s]" % (channel_name, ', '.join(map(str, proposal_user_emails)).strip("'")))
 
     except SlackApiError as e:
         log.error("Error creating conversation: {}".format(e))
         log.error('Channel [%s] already exists' % channel_name)
-        log.warning("If you have not already done so, please invite to the slack channel %s these users [%s]" % (channel_name, ', '.join(map(str, emails)).strip("'")))
+        log.warning("If you have not already done so, please invite to the slack channel %s these users [%s]" % (channel_name, ', '.join(map(str, proposal_user_emails)).strip("'")))
 
     
     # WARNING: options below are only for Business+ and above. 
@@ -196,7 +222,7 @@ def slack_gup(args):
     #     log.error("Error users_lookupByEmail: {}".format(e))
 
 def show(args):
-    channel_name, emails = create_channel_name(args)
+    channel_name, proposal_user_emails = create_channel_name(args)
     log.warning('Run ** slack gup ** to create %s.' % channel_name)
 
 def main():
