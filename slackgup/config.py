@@ -25,22 +25,25 @@ SECTIONS['settings'] = {
     'set': {     
         'type': float,
         'default': 0,
-        'help': "Number of +/- number days for the current date. Used for setting a channel for past/future user groups"},
-    'beamline': {
-        'default': 'None',
+        'help': "Number of +/- number days for the current date. Used for setting user info for past/future user groups"},
+    'beamline' : {
+        'default' : '7-BM-B',
         'type': str,
-        'help': "When set adds the beamline name as a prefix to the slack channel name",
-        'choices': ['None','2-bm', '7-bm', '8-id', '20-bm', '29-id', '32-id']},
+        'help': "beamline name as defined at https://www.aps.anl.gov/Beamlines/Directory, e.g. 2-BM-A,B or 7-BM-B or 32-ID-B,C"},
+    'url':{
+        'default': 'https://mis7.aps.anl.gov:7004',
+        'type': str,
+        'help': "URL address of the scheduling system REST API' "},
     }
 
 SECTIONS['contacts'] = {
     'primary-beamline-contact-email': {
-        'default': 'pshevchenko@anl.gov',
+        'default': 'Empty',
         'type': str,
         'help': "Beamline scientist email",
         'metavar': 'FILE'},
     'secondary-beamline-contact-email': {
-        'default': 'decarlo@anl.gov',
+        'default': 'Empty',
         'type': str,
         'help': "Beamline scientist email",
         'metavar': 'FILE'},
@@ -162,8 +165,7 @@ def write(config_file, args=None, sections=None):
     with open(config_file, 'w') as f:
         config.write(f)
 
-
-def log_values(args):
+def show_config(args):
     """Log all values set in the args namespace.
 
     Arguments are grouped according to their section and logged alphabetically
@@ -171,13 +173,12 @@ def log_values(args):
     """
     args = args.__dict__
 
+    log.warning('slack status start')
     for section, name in zip(SECTIONS, NICE_NAMES):
         entries = sorted((k for k in args.keys() if k.replace('_', '-') in SECTIONS[section]))
-
         if entries:
-            log.info(name)
-
             for entry in entries:
-                value = args[entry] if args[entry] is not None else "-"
+                value = args[entry] if args[entry] != None else "-"
                 log.info("  {:<16} {}".format(entry, value))
 
+    log.warning('slack status end')
